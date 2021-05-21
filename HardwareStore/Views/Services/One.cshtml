@@ -1,0 +1,30 @@
+﻿@model IQueryable<Serviceitem>
+@{
+    TextField textField = ViewBag.TextField;
+
+    ViewBag.Title = textField.MetaTitle;
+    ViewBag.Description = textField.MetaDiscription;
+    ViewBag.Keywords = textField.Meta;
+}
+
+<div>
+    @if (Model.Any())
+    {
+        <ul class="big-image-list">
+            @foreach (Serviceitem entity in Model)
+            {
+
+
+              @if(entity.Catygory == "1"){
+                <li>
+                    <a asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="@entity.Id">
+                        <img src="~/images/@entity.TitleImagePath" alt="" class="left" />
+                    </a>
+                    <h4>@entity.Title</h4>
+                    <p>@entity.SubTitle</p>
+                </li>
+                }
+            }
+        </ul>
+    }
+</div>

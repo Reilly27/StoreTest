@@ -1,0 +1,10 @@
+﻿@model TextField
+@{
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.Description = Model.MetaDiscription;
+    ViewBag.Keywords = Model.Meta;
+}
+
+<div>
+    @Html.Raw(Model.Text)
+</div>
